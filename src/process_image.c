@@ -6,8 +6,14 @@
 
 float get_pixel(image im, int x, int y, int c)
 {
-    // TODO Fill this in
-    return 0;
+    printf("image width: %d\n", im.w);
+    printf("image height: %d\n", im.h);
+    printf("image channels: %d\n", im.c);
+    int pos = y + x * im.w + c * im.c;
+    printf("position: %d\n", pos);
+    printf("pixel value: %.3f\n\n", im.data[pos]);
+
+    return im.data[pos];
 }
 
 void set_pixel(image im, int x, int y, int c, float v)
@@ -40,16 +46,15 @@ void clamp_image(image im)
     // TODO Fill this in
 }
 
-
 // These might be handy
 float three_way_max(float a, float b, float c)
 {
-    return (a > b) ? ( (a > c) ? a : c) : ( (b > c) ? b : c) ;
+    return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
 }
 
 float three_way_min(float a, float b, float c)
 {
-    return (a < b) ? ( (a < c) ? a : c) : ( (b < c) ? b : c) ;
+    return (a < b) ? ((a < c) ? a : c) : ((b < c) ? b : c);
 }
 
 void rgb_to_hsv(image im)
