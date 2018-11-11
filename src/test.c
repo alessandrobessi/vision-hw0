@@ -23,7 +23,7 @@ void test_get_pixel()
     printf("test_get_pixel()\n");
     image im = load_image("data/dots.png");
     printf("h: %d, w: %d, c: %d\n", im.h, im.w, im.c);
-    printf("total size: %d\n\n", im.h * im.w * im.c);
+    printf("size: %d\n\n", im.h * im.w * im.c);
     // Test within image
     TEST(within_eps(0, get_pixel(im, 0, 0, 0)));
     TEST(within_eps(1, get_pixel(im, 1, 0, 1)));
