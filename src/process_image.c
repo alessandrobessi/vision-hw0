@@ -9,9 +9,27 @@ float get_pixel(image im, int x, int y, int c)
     printf("image width: %d\n", im.w);
     printf("image height: %d\n", im.h);
     printf("image channels: %d\n", im.c);
-    int pos = y + x * im.w + c * im.c;
+
+    printf("old x: %d\n", x);
+    printf("old y: %d\n", y);
+    printf("old c: %d\n", c);
+
+    if (x < 0)
+        x = 0;
+    if (y < 0)
+        y = 0;
+    if (x >= im.w)
+        x = im.w - 1;
+    if (y >= im.h)
+        y = im.h;
+
+    printf("new x: %d\n", x);
+    printf("new y: %d\n", y);
+    printf("new c: %d\n", c);
+
+    int pos = x + y * im.h + c * im.w * im.h;
     printf("position: %d\n", pos);
-    printf("pixel value: %.3f\n\n", im.data[pos]);
+    printf("pixel value: %.3f\n\n\n", im.data[pos]);
 
     return im.data[pos];
 }
