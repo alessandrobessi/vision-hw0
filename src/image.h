@@ -1,11 +1,11 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
-typedef struct{
-    int w,h,c;
+typedef struct
+{
+    int w, h, c;
     float *data;
 } image;
-
 
 // Basic operations
 float get_pixel(image im, int x, int y, int c);
@@ -17,7 +17,6 @@ void hsv_to_rgb(image im);
 void shift_image(image im, int c, float v);
 void clamp_image(image im);
 
-
 // Loading and saving
 image make_image(int w, int h, int c);
 image load_image(char *filename);
@@ -25,4 +24,3 @@ void save_image(image im, const char *name);
 void free_image(image im);
 
 #endif
-
